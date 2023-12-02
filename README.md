@@ -25,12 +25,16 @@ Install dependencies
 ### Clone project
 ```bash
 git clone https://github.com/linphotonicslab/ML_Pipeline
+```
+```bash
 cd ML_Pipeline
 ```
 
 ### [OPTIONAL] Create conda environment
 ```bash
 conda create -n [ENV NAME]
+```
+```bash
 conda activate [ENV NAME]
 ```
 
