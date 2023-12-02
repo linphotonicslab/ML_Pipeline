@@ -4,7 +4,7 @@ PI: Dr. Lih Lin\
 Authors: [Nick Roberts](mailto:nickrob320@gmail.com) and [Dylan Jones](mailto:ddj123@uw.edu)
 
 ### Overview
-The dataset used for our machine learning analysis is created the `create_data.py` script that can be run as `python create_data.py` in your terminal.
+The dataset used for our machine learning analysis is created using the `create_data.py` script that can be run as `python scripts/create_data.py` in your terminal.
 
 It takes a CSV file from the [Perovskite Database](https://www.perovskitedatabase.com/Download) and converts it to a cleaned csv file ready for machine learning training.
 
