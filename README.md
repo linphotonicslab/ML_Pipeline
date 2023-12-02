@@ -22,7 +22,7 @@ Below is a detailed description of each section:
 ### Initialization
 Install dependencies
 
-### Clone project
+1. Clone project
 ```bash
 git clone https://github.com/linphotonicslab/ML_Pipeline
 ```
@@ -30,7 +30,7 @@ git clone https://github.com/linphotonicslab/ML_Pipeline
 cd ML_Pipeline
 ```
 
-### [OPTIONAL] Create conda environment
+2. [OPTIONAL] Create conda environment
 ```bash
 conda create -n [ENV NAME]
 ```
@@ -38,10 +38,10 @@ conda create -n [ENV NAME]
 conda activate [ENV NAME]
 ```
 
-### Install pytorch according to instructions
+3. Install pytorch according to instructions
 [Pytorch](https://pytorch.org/get-started/)
 
-### Install requirements
+4. Install requirements
 ```bash
 pip install -r requirements.txt
 ```
