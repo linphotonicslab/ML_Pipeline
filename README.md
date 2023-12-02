@@ -19,6 +19,25 @@ The file is structured in the following order:
 
 Below is a detailed description of each section:
 
+### Initialization
+Install dependencies
+
+```bash
+# clone project
+git clone https://github.com/linphotonicslab/ML_Pipeline
+cd ML_Pipeline
+
+# [OPTIONAL] create conda environment
+conda create -n **ENV NAME**
+conda activate **ENV NAME**
+
+# install pytorch according to instructions
+# https://pytorch.org/get-started/
+
+# install requirements
+pip install -r requirements.txt
+```
+
 ### 1. Specify Desired Columns
 The desired columns are stored in a `DESIRED_COLUMNS` dictionary, with descriptive `strings` as keys and columns `lists` that contain column names as values. How the `strings` are named is _important_ as it determines how each group of columns is formatted in the final dataframe.
 
