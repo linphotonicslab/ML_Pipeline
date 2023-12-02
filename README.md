@@ -28,8 +28,8 @@ git clone https://github.com/linphotonicslab/ML_Pipeline
 cd ML_Pipeline
 
 # [OPTIONAL] create conda environment
-conda create -n **ENV NAME**
-conda activate **ENV NAME**
+conda create -n [ENV NAME]
+conda activate [ENV NAME]
 
 # install pytorch according to instructions
 # https://pytorch.org/get-started/
