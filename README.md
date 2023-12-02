@@ -38,8 +38,8 @@ conda create -n [ENV NAME]
 conda activate [ENV NAME]
 ```
 
-3. Install pytorch according to instructions
-[Pytorch](https://pytorch.org/get-started/)
+3. Install pytorch according to [instructions](https://pytorch.org/get-started/)
+\
 
 4. Install requirements
 ```bash
