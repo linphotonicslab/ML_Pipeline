@@ -20,30 +20,28 @@ The file is structured in the following order:
 Below is a detailed description of each section:
 
 ### Initialization
-Install dependencies
-
 1. Clone project
 ```bash
-git clone https://github.com/linphotonicslab/ML_Pipeline
+    git clone https://github.com/linphotonicslab/ML_Pipeline
 ```
 ```bash
-cd ML_Pipeline
+    cd ML_Pipeline
 ```
 
 2. [OPTIONAL] Create conda environment
 ```bash
-conda create -n [ENV NAME]
+    conda create -n [ENV NAME]
 ```
 ```bash
-conda activate [ENV NAME]
+    conda activate [ENV NAME]
 ```
 
 3. Install pytorch according to [instructions](https://pytorch.org/get-started/)
-\
+
 
 4. Install requirements
 ```bash
-pip install -r requirements.txt
+    pip install -r requirements.txt
 ```
 
 
