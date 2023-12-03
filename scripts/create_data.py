@@ -21,12 +21,7 @@ from pathlib import Path
 import os
 
 #Global Variables that control the generated csvs
-# PATH_TO_DATA = '../../data/led/photocell_database.csv'
-
-#ABSOLUTE_PATH = os.path.dirname(__file__)
 RELATIVE_PATH_TO_DATA = 'photocell_database.csv'
-#FULL_PATH = os.path.join(ABSOLUTE_PATH, RELATIVE_PATH_TO_DATA)
-#print("Found datafile:", os.path.isfile(FULL_PATH))
 
 PARENT_DIR = Path.cwd() / 'Data/Raw'
 FULL_PATH = os.path.join(PARENT_DIR, RELATIVE_PATH_TO_DATA)
