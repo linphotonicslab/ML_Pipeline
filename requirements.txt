@@ -1,5 +1,4 @@
 # --------- Required libraries --------- #
-torch
 numpy
 scikit-learn
 pandas
