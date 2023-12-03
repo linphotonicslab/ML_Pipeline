@@ -2,7 +2,9 @@
 Authors: Dylan Jones and Nick Roberts
 Emails: ddj123@uw.edu and nickrob320@gmail.com
 
-This file splits cleaned data into the training, validation, and testing sets. These splits can be adjusted by editing DATASPLIT, as well as the randomized seed replicatable results.
+This file splits cleaned data into the training, validation, and testing sets.
+These splits can be adjusted by editing DATASPLIT, as well as the randomized seed
+replicatable results.
 
 """
 

@@ -3,22 +3,24 @@ Authors: Dylan Jones and Nick Roberts
 Emails: ddj123@uw.edu and nickrob320@gmail.com
 
 This file creates a cleaned dataset based on the perovskite database. It is linked to a csv.
-All you have to do is toggle the desired columns at the top of the file (comment them out)
-and the rest of the code will create a dataset based on those desired columns
+That contains data downloaded form the perovskite database.
 
-TODO:
+All you have to do is toggle the desired columns at the top of the file (comment them out
+or add more not found here) and the rest of the code will create a dataset based on those
+desired columns.
+
+Running this file in the console gives a detailed timeline of how the database is created.
 '''
 
 import numpy as np
 import pandas as pd
 import re
-import csv
-
+import os
 from numpy import nan
 from statistics import mode
 from sklearn.preprocessing import StandardScaler
 from pathlib import Path
-import os
+
 
 #Global Variables that control the generated csvs
 RELATIVE_PATH_TO_DATA = 'photocell_database.csv'
@@ -27,8 +29,8 @@ PARENT_DIR = Path.cwd() / 'Data/Raw'
 FULL_PATH = os.path.join(PARENT_DIR, RELATIVE_PATH_TO_DATA)
 print("Found datafile:", os.path.isfile(FULL_PATH))
 
-# WARNING: PAIRED column lists must be formatted such that the column that contains the header strings
-# is first.
+# WARNING: PAIRED column lists must be formatted such that the column that contains the
+# header strings is first.
 
 DESIRED_COLUMNS  = {
   'DEVICE_CHARACTERISTICS': [

@@ -101,7 +101,7 @@ Populates a given `row_info` dictionary with datapoints for all the non-paired c
 
 
 `create_index_dictionary`:
-The output dataframe is constructed from a dictionary whose keys correspond to the indices of the original dataframe that's being cleaned. For every row that passes the quality checks in `extract_information` and `extract_paired_information`, its row information stored in the `row_info` dictionary is added to the index dictionary. This allows for the easy construction of a Pandas dataframe. In a later step. This function also keeps track of all the unique columns seen.
+The output dataframe is constructed from a dictionary whose keys correspond to the indices of the original dataframe that's being cleaned. For every row that passes the quality checks in `extract_information` and `extract_paired_information`, its row information stored in the `row_info` dictionary is added to the index dictionary. This allows for the easy construction of a Pandas dataframe in a later step. This function also keeps track of all the unique columns seen.
 
 `construct_dataframe`:
 Given a set of columns and an index dictionary {row_i: {'header_i': 'value_i . . . .}}, it constructs a Pandas dataframe.
