@@ -38,11 +38,17 @@ Below is a detailed description of each section:
 
 3. Install pytorch according to [instructions](https://pytorch.org/get-started/)
 
+It may be necessary to pick a specific version of python that's compatible with pytorch. We used 3.10.
+
 
 4. Install requirements
+
 ```bash
     pip install -r requirements.txt
 ```
+
+If you are using a conda environment, you and installing the packages with pip,
+you _must_ first install pip in your conda environment with ```conda install pip``` and then ```pip install -r requirements.txt``` in the root folder.
 
 
 ### 1. Specify Desired Columns
