@@ -17,8 +17,8 @@ from pathlib import Path
 DATASPLIT = [0.8, 0.1, 0.1]
 SEED = 42
 
-INPUT_PATH = Path.cwd() / 'data/cleaned/cleaned_data.csv'
-OUTPUT_PATH = Path.cwd() / 'data/cleaned'
+INPUT_PATH = Path.cwd() / '../data/cleaned/cleaned_data.csv'
+OUTPUT_PATH = Path.cwd() / '../data/cleaned'
 
 if sum(DATASPLIT) != 1:
     raise ValueError('Invalid datasplit, must sum to 1.')
@@ -47,7 +47,7 @@ if drop:
     print("Dropping NaN entries...")
     X.dropna(inplace=True)
     print(f"\t{l - len(X)} entries removed")
-    print(f"\t{len(X)} entrie remaining")
+    print(f"\t{len(X)} entries remaining")
 print("Splitting datasets...")
 y = X[target]
 del(X[target])

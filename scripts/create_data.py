@@ -25,7 +25,7 @@ from pathlib import Path
 #Global Variables that control the generated csvs
 RELATIVE_PATH_TO_DATA = 'photocell_database.csv'
 
-PARENT_DIR = Path.cwd() / 'Data/Raw'
+PARENT_DIR = Path.cwd() / '../data/raw'
 FULL_PATH = os.path.join(PARENT_DIR, RELATIVE_PATH_TO_DATA)
 print("Found datafile:", os.path.isfile(FULL_PATH))
 
@@ -548,7 +548,7 @@ def remove_duplicates(df: pd.DataFrame):
   target, or the mode of the target (whichever is greater) for the group of duplicate rows.
   '''
   # Ensure the target column is at the end of the dataframe
-  print("LENGTH BEFORE REMOVAL:",len(df.dropna()))
+  print("\tNon-NaN length before removal:", len(df.dropna()))
   target_col = df.pop(TARGET_COLUMN)
   df = pd.concat([df, target_col], axis=1)
   df = df.fillna('nan')
@@ -574,7 +574,7 @@ def remove_duplicates(df: pd.DataFrame):
           no_dupes_array.append(list(current.to_numpy().squeeze()))
   no_dupes = pd.DataFrame(no_dupes_array, columns=df.columns)
   no_dupes.replace('nan', np.nan, inplace=True)
-  print("LENGTH AFTER REMOVAL:",len(no_dupes.dropna()))
+  print("\t Non-NaN length after removal:",len(no_dupes.dropna()))
   return no_dupes
 
 @modification_wrapper
@@ -644,7 +644,7 @@ def main():
 
   # 9: Standard Scaling
   output_csv = standard_scale_features(output_csv)
-  output_path = Path.cwd() / 'Data/Cleaned/cleaned_data.csv'
+  output_path = Path.cwd() / '../data/cleaned/cleaned_data.csv'
   output_csv.to_csv(output_path, index=False)
   summarize_final_df(output_csv)
 

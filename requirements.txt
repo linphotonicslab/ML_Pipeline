@@ -3,4 +3,5 @@ numpy
 scikit-learn
 pandas
 optuna
+cmaes
 xgboost
