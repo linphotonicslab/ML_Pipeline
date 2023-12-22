@@ -25,7 +25,7 @@ from pathlib import Path
 #Global Variables that control the generated csvs
 RELATIVE_PATH_TO_DATA = 'photocell_database.csv'
 
-PARENT_DIR = Path.cwd() / '../data/raw'
+PARENT_DIR = Path.cwd() / 'data/raw'
 FULL_PATH = os.path.join(PARENT_DIR, RELATIVE_PATH_TO_DATA)
 print("Found datafile:", os.path.isfile(FULL_PATH))
 
@@ -93,12 +93,12 @@ DESIRED_COLUMNS  = {
 
   'ELECTRICAL_PARAMETERS': [
     #'JV_reverse_scan_PCE',
-    'JV_reverse_scan_Jsc',
+    'JV_default_Jsc',
     #'JV_reverse_scan_Voc'
   ]
 }
 # Change the target here
-TARGET_COLUMN = 'JV_reverse_scan_Jsc'
+TARGET_COLUMN = 'JV_default_Jsc'
 
 # If you want any of the above columns to have a shorter name in the dataframe, add them here as
 # key, value pairs
@@ -541,6 +541,14 @@ def remove_more_than_3std_away(df: pd.DataFrame, non_standard_cols: set) -> pd.D
    return df, non_standard_cols
 
 @modification_wrapper
+def drop_empty_cols(df: pd.DataFrame) -> pd.DataFrame:
+  l = len(df.columns)
+  columns_to_drop = [col for col in df.columns if df[col].nunique() == 1]
+  df = df.drop(columns=columns_to_drop)
+  print(f"\tDropped {l - len(df.columns)} empty columns")
+  return df
+
+@modification_wrapper
 def remove_duplicates(df: pd.DataFrame):
   '''
   Removes all duplicate rows from the dataframe excluding the target column.
@@ -576,7 +584,7 @@ def remove_duplicates(df: pd.DataFrame):
   no_dupes.replace('nan', np.nan, inplace=True)
   print("\t Non-NaN length after removal:",len(no_dupes.dropna()))
   return no_dupes
-
+  
 @modification_wrapper
 def standard_scale_features(df: pd.DataFrame) -> pd.DataFrame:
   '''
@@ -639,12 +647,17 @@ def main():
   #    column's mean (outlier removal)
   output_csv, categorial_and_target_cols = remove_more_than_3std_away(output_csv, categorical_and_target_cols)
 
+  output_csv = output_csv[output_csv['JV_default_Jsc'] <= 50]
+
   # 8: Duplicate Removal
   output_csv = remove_duplicates(output_csv)
 
-  # 9: Standard Scaling
+  # 9: Drop any columns where all non-zero entries have been removed
+  output_csv = drop_empty_cols(output_csv)
+
+  # 10: Standard Scaling
   output_csv = standard_scale_features(output_csv)
-  output_path = Path.cwd() / '../data/cleaned/cleaned_data.csv'
+  output_path = Path.cwd() / 'data/cleaned/cleaned_data.csv'
   output_csv.to_csv(output_path, index=False)
   summarize_final_df(output_csv)
 
