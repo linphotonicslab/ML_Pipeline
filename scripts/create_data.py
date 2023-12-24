@@ -22,11 +22,8 @@ from sklearn.preprocessing import StandardScaler
 from pathlib import Path
 
 
-#Global Variables that control the generated csvs
-RELATIVE_PATH_TO_DATA = 'photocell_database.csv'
-
-PARENT_DIR = Path.cwd() / 'data/raw'
-FULL_PATH = os.path.join(PARENT_DIR, RELATIVE_PATH_TO_DATA)
+#Global Variables that control the generated CSVs
+FULL_PATH = os.path.join(Path.cwd().parent, 'data/raw/photocell_database.csv')
 print("Found datafile:", os.path.isfile(FULL_PATH))
 
 # WARNING: PAIRED column lists must be formatted such that the column that contains the
@@ -584,7 +581,7 @@ def remove_duplicates(df: pd.DataFrame):
   no_dupes.replace('nan', np.nan, inplace=True)
   print("\t Non-NaN length after removal:",len(no_dupes.dropna()))
   return no_dupes
-  
+
 @modification_wrapper
 def standard_scale_features(df: pd.DataFrame) -> pd.DataFrame:
   '''
@@ -657,7 +654,7 @@ def main():
 
   # 10: Standard Scaling
   output_csv = standard_scale_features(output_csv)
-  output_path = Path.cwd() / 'data/cleaned/cleaned_data.csv'
+  output_path = os.path.join(Path.cwd().parent, 'data/cleaned/cleaned_data.csv')
   output_csv.to_csv(output_path, index=False)
   summarize_final_df(output_csv)
 

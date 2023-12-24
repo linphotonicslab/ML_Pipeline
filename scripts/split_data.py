@@ -16,9 +16,8 @@ from pathlib import Path
 
 DATASPLIT = [0.8, 0.1, 0.1]
 SEED = 42
-
-INPUT_PATH = Path.cwd() / 'data/cleaned/cleaned_data.csv'
-OUTPUT_PATH = Path.cwd() / 'data/cleaned'
+INPUT_PATH = os.path.join(Path.cwd().parent, 'data/cleaned/cleaned_data.csv')
+OUTPUT_PATH = os.path.join(Path.cwd().parent, 'data/cleaned')
 
 if sum(DATASPLIT) != 1:
     raise ValueError('Invalid datasplit, must sum to 1.')
